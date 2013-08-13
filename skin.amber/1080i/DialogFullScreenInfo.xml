@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<window type="dialog">
+  <defaultcontrol always="true">9000</defaultcontrol>
+  <animation effect="fade" start="0" end="100" time="380">WindowOpen</animation>
+	<animation effect="fade" start="100" end="0" time="100" delay="150">WindowClose</animation>
+  <controls>
+    <control type="button" id="9000">
+      <include>HiddenButton</include>
+      <onclick>close</onclick>
+	  <ondown>close</ondown>
+	  <onup>close</onup>
+	  <onleft>close</onleft>
+	  <onright>close</onright>
+    </control>
+    <control type="group">
+      <control type="image" description="Background">
+        <posx>0</posx>
+        <posy>0</posy>
+        <width>1920</width>
+        <height>361</height>
+        <texture flipy="true">OSD/OSDBackground.png</texture>
+        <colordiffuse>BBFFFFFF</colordiffuse>
+      </control>
+      <control type="group" description="Thumb">
+        <posy>-6</posy>
+        <control type="image">
+          <posx>390r</posx>
+          <posy>72</posy>
+          <width>350</width>
+          <height>240</height>
+          <texture diffuse="thumbs/SquareDiffuse.png" fallback="thumbs/SquareBG_NF.png">$INFO[VideoPlayer.Cover]</texture>
+          <aspectratio aligny="bottom" align="right">keep</aspectratio>
+        </control>
+		
+        <control type="group">
+          <posx>-260</posx>
+          <posy>81</posy>
+          <control type="label" description="Main label">
+            <visible>![VideoPlayer.Content(MusicVideos) | VideoPlayer.Content(Episodes)]</visible>
+            <include>FullscreenInfoLabelMain</include>
+            <label>$INFO[VideoPlayer.ChannelNumber,,.]$INFO[VideoPlayer.ChannelName,,: ]$INFO[VideoPlayer.Title]</label>
+          </control>
+          <control type="label" description="Main label">
+            <visible>VideoPlayer.Content(MusicVideos)</visible>
+            <include>FullscreenInfoLabelMain</include>
+            <label>$INFO[VideoPlayer.Artist]</label>
+          </control>
+          <control type="label" description="Main label">
+            <visible>VideoPlayer.Content(Episodes)</visible>
+            <include>FullscreenInfoLabelMain</include>
+            <label>$INFO[VideoPlayer.Title]</label>
+          </control>
+          <control type="label" description="Label 2">
+            <visible>VideoPlayer.Content(MusicVideos)</visible>
+            <include>FullscreenInfoLabel2</include>
+            <label>$INFO[VideoPlayer.Album]</label>
+          </control>
+          <control type="label" description="Label 2">
+            <visible>Player.ChapterCount + !VideoPlayer.Content(LiveTV)</visible>
+            <include>FullscreenInfoLabel2</include>
+            <label>$LOCALIZE[21396]$INFO[Player.Chapter, : ]$INFO[Player.ChapterCount, / ]</label>
+          </control>
+          <control type="label" description="Label 2">
+            <visible>VideoPlayer.Content(Episodes)</visible>
+            <include>FullscreenInfoLabel2</include>
+            <label>$INFO[VideoPlayer.TVShowTitle] - $LOCALIZE[20373] $INFO[VideoPlayer.Season], $LOCALIZE[20359] $INFO[VideoPlayer.Episode]</label>
+          </control>
+          <control type="label" description="Label 2">
+            <visible>VideoPlayer.Content(LiveTV)</visible>
+            <include>FullscreenInfoLabel2</include>
+            <label>$INFO[VideoPlayer.ChannelGroup,$LOCALIZE[31509]: ]</label>
+          </control>
+          <control type="textbox">
+            <posx>300</posx>
+            <posy>112</posy>
+            <width>1410</width>
+            <height>125</height>
+			<align>justify</align>
+            <label>$INFO[VideoPlayer.Plot]</label>
+            <autoscroll>false</autoscroll>
+            <font>InfoPlot</font>
+          </control>
+        </control>
+      </control>
+    </control>
+  </controls>
+</window>

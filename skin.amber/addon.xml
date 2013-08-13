@@ -1,0 +1,22 @@
+<addon id="skin.amber-xbian.mod" version="0.4.7" name="Amber-xbian.mod" provider-name="Pecinko">
+  <requires>
+    <import addon="xbmc.gui" version="4.0.0"/>
+    <import addon="script.favourites" version="3.2.0"/>
+  </requires>
+  <extension
+    point="xbmc.gui.skin"
+    defaultthemename="Textures.xbt"
+    debugging="false">
+    <res width="1920" height="1080" aspect="16:9" default="true" folder="1080i" />
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <platform>all</platform>
+    <summary>designed by Pećinko</summary>
+    <description>Amber offers nice, fast and simple to use interface. Based mostly on Aeon/Aeon Nox and Mediastream textures.</description>
+  </extension>
+    <extension point="xbmc.addon.repository" name="XBIAN Addons">
+        <info compressed="false">https://github.com/xbianonpi/xbian-xbmc-repository/addon.xml</info>
+        <checksum>https://github.com/xbianonpi/xbian-xbmc-repository/addons.xml.md5</checksum>
+        <datadir zip="false">https://github.com/xbianonpi/xbian-xbmc-repository/</datadir>
+    </extension>
+</addon>
